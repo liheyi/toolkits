@@ -5,6 +5,13 @@ import pexpect
 import delegator
 from datetime import date
 
+"""
+本脚本只是实现了部分功能，并没有进行充分完善的测试。
+需要完善的地方：
+    1.处理所有被合服的区服，需要考虑如何跳过正在运行的区服；
+    2.如何跳过之前已经处理过的区服；
+    3.考虑数据库从库的各种情况：有无密码，单/多实例；
+"""
 
 # 格式化当前时间
 today = date.today()
@@ -110,7 +117,7 @@ for sock in socks_list:
     #+ 由于不会使用delegator.py工具中的expect命令
     #+ 因此使用pexpect模块(非标准库模块)进行替换
 
-    password = r'dsdxfsh2015tk@2013&!'
+    password = r'password'
 
     try:
         scp_info = pexpect.spawn(scp_cmd)
